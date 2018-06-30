@@ -2,20 +2,9 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "sString.h"
 #include "PrintLib.h"
-
-void sString::Init(const char* text, eStringType type)
-{
-	_type = type;
-	strcpy_s(_text, text);
-}
-
-void sString::Init(const char* text, eStringType type, int selectY, int selectN)
-{
-	Init(text, type);
-	_selectY = selectY;
-	_selectN = selectN;
-}
 
 void AddStringToParagraph(sParagraph* paragraph, sString* string)
 {
@@ -90,10 +79,4 @@ void AddParagraphToList(sParagraphList* paragraphList, sParagraph* paragraph)
 {
 	paragraphList->list[paragraphList->count] = *paragraph;
 	paragraphList->count++;
-}
-
-void sString::Print()
-{
-	printf(_text);
-	printf("\n");
 }

@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "PrintLib.h"
+#include "sString.h"
 #include "CSVLib.h"
 
 void Save(int select)
