@@ -54,10 +54,10 @@ int PrintParagraph(sParagraph* paragraph)
 		switch (paragraph->current->_type)
 		{
 		case TEXT:
-			PrintText(paragraph->current);
+			paragraph->current->Print(paragraph->current);
 			break;
 		case BRANCH:
-			PrintText(paragraph->current);
+			paragraph->current->Print(paragraph->current);
 			while (true)
 			{
 				char ch = _getche();
@@ -76,7 +76,7 @@ int PrintParagraph(sParagraph* paragraph)
 			}
 			break;
 		case QUIT:
-			PrintText(paragraph->current);
+			paragraph->current->Print(paragraph->current);
 			return -1;	// Á¾·á
 		}
 
@@ -92,7 +92,7 @@ void AddParagraphToList(sParagraphList* paragraphList, sParagraph* paragraph)
 	paragraphList->count++;
 }
 
-void PrintText(sString* string)
+void sString::Print(sString* string)
 {
 	printf(string->_text);
 	printf("\n");

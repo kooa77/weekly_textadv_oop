@@ -19,6 +19,7 @@ struct sString
 
 	void Init(sString* string, const char* text, eStringType type);
 	void Init(sString* string, const char* text, eStringType type, int selectY, int selectN);
+	void Print(sString* string);
 };
 
 struct sParagraph
@@ -37,5 +38,4 @@ void AddStringToParagraph(sParagraph* paragraph, sString* text);
 
 void AddParagraphToList(sParagraphList* paragraphList, sParagraph* paragraph);
 
-void PrintText(sString* string);
 int PrintParagraph(sParagraph* paragraph);
