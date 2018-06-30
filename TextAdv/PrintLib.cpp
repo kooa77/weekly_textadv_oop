@@ -9,6 +9,7 @@ void sString::Init(sString* string, const char* text, eStringType type)
 	string->_type = type;
 	strcpy_s(string->_text, text);
 }
+
 void sString::Init(sString* string, const char* text, eStringType type, int selectY, int selectN)
 {
 	Init(string, text, type);
@@ -53,10 +54,10 @@ int PrintParagraph(sParagraph* paragraph)
 		switch (paragraph->current->_type)
 		{
 		case TEXT:
-			PrintText(paragraph->current->_text);
+			PrintText(paragraph->current);
 			break;
 		case BRANCH:
-			PrintText(paragraph->current->_text);
+			PrintText(paragraph->current);
 			while (true)
 			{
 				char ch = _getche();
@@ -75,7 +76,7 @@ int PrintParagraph(sParagraph* paragraph)
 			}
 			break;
 		case QUIT:
-			PrintText(paragraph->current->_text);
+			PrintText(paragraph->current);
 			return -1;	// Á¾·á
 		}
 
@@ -91,8 +92,8 @@ void AddParagraphToList(sParagraphList* paragraphList, sParagraph* paragraph)
 	paragraphList->count++;
 }
 
-void PrintText(const char* text)
+void PrintText(sString* string)
 {
-	printf(text);
+	printf(string->_text);
 	printf("\n");
 }

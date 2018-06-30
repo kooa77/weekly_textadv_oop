@@ -30,7 +30,6 @@ struct sParagraph
 struct sParagraphList
 {
 	int count;
-	//struct sParagraph list[256];
 	struct sParagraph* list;
 };
 
@@ -38,5 +37,5 @@ void AddStringToParagraph(sParagraph* paragraph, sString* text);
 
 void AddParagraphToList(sParagraphList* paragraphList, sParagraph* paragraph);
 
-void PrintText(const char* text);
+void PrintText(sString* string);
 int PrintParagraph(sParagraph* paragraph);
