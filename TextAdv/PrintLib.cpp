@@ -13,16 +13,20 @@ void AddStringToParagraph(sParagraph* paragraph, sString* string)
 	{
 		// 첫 문장 (paragraph->current : 첫 문장)
 		paragraph->current = string;	// 현재 문장 세팅
-		string->_prev = NULL;
-		string->_next = NULL;
+		//string->_prev = NULL;
+		//string->_next = NULL;
+		string->InitNode(NULL, NULL);
 		paragraph->start = string;
 	}
 	else
 	{
 		// 첫 문장 아님
-		paragraph->current->_next = string;
-		string->_prev = paragraph->current;
-		string->_next = NULL;
+		//paragraph->current->_next = string;
+		paragraph->current->SetNext(string);
+		
+		//string->_prev = paragraph->current;
+		//string->_next = NULL;
+		string->InitNode(paragraph->current, NULL);
 		paragraph->current = string;
 	}
 }
@@ -32,15 +36,9 @@ int PrintParagraph(sParagraph* paragraph)
 	// 현재 출력할 문장을 첫 문장으로 세팅
 	// (첫 문장 부터 출력)
 	paragraph->current = paragraph->start;
-	// 현재 문장이 존재하는 한 반복 (NULL 이면 없음)
-	// != : 아니면
-	// 문장의 갯수는 모르는 상태에서 반복을 진행한다.
 	while(NULL != paragraph->current)
 	{
-		// stringList[i] : i 번째 있는 문장
-		// current : 현재 문장
-		// stringList[i].  ==>  current->
-		switch (paragraph->current->_type)
+		switch (paragraph->current->GetType())
 		{
 		case TEXT:
 			paragraph->current->Print();
@@ -52,11 +50,11 @@ int PrintParagraph(sParagraph* paragraph)
 				char ch = _getche();
 				if ('y' == ch || 'Y' == ch)
 				{
-					return paragraph->current->_selectY;
+					return paragraph->current->GetSelectY();
 				}
 				else if ('n' == ch || 'N' == ch)
 				{
-					return paragraph->current->_selectN;
+					return paragraph->current->GetSelectN();
 				}
 				else if ('q' == ch || 'Q' == ch || 27 == ch)	// 27 : ESC
 				{
@@ -69,7 +67,8 @@ int PrintParagraph(sParagraph* paragraph)
 			return -1;	// 종료
 		}
 
-		paragraph->current = paragraph->current->_next;
+		//paragraph->current = paragraph->current->_next;
+		paragraph->current = paragraph->current->GetNext();
 	}
 
 	return 0;

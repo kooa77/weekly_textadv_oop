@@ -108,14 +108,10 @@ int main(void)
 		paragraphList.list[i].current = paragraphList.list[i].start;
 		while (NULL != paragraphList.list[i].current)
 		{
-			// 다음 문장을 기억해 놓고
-			sString* nextStirng = paragraphList.list[i].current->_next;
-			// 현재 문장을 지운 후
+			//sString* nextStirng = paragraphList.list[i].current->_next;
+			sString* nextStirng = paragraphList.list[i].current->GetNext();
 			free(paragraphList.list[i].current);
-			// 현재 문장을 기억해 놓은 다음 문장으로 세팅
 			paragraphList.list[i].current = nextStirng;
-			// 다음 문장을 기억하지 않고 현재 문장을 지워버리면
-			// 다음 문장을 알 방법이 없다.
 		}
 	}
 	free(paragraphList.list);
