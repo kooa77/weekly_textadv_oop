@@ -9,21 +9,17 @@ enum eStringType
 
 struct sString
 {
-	eStringType type;
-	char text[256];
-	int selectY;
-	int selectN;
+	eStringType _type;
+	char _text[256];
+	int _selectY;
+	int _selectN;
 
-	sString* prev;	// 이전 문장
-	sString* next;	// 다음 문장
+	sString* _prev;	// 이전 문장
+	sString* _next;	// 다음 문장
 };
 
 struct sParagraph
 {
-	/*
-	sString* stringList;
-	int count;
-	*/
 	sString* start;		// 시작 문장
 	sString* current;	// 현재 출력해야 할 문장
 };

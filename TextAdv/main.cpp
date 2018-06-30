@@ -104,12 +104,11 @@ int main(void)
 
 	for (int i = 0; i < paragraphList.count; i++)
 	{
-		//free(paragraphList.list[i].stringList);
 		paragraphList.list[i].current = paragraphList.list[i].start;
 		while (NULL != paragraphList.list[i].current)
 		{
 			// 다음 문장을 기억해 놓고
-			sString* nextStirng = paragraphList.list[i].current->next;
+			sString* nextStirng = paragraphList.list[i].current->_next;
 			// 현재 문장을 지운 후
 			free(paragraphList.list[i].current);
 			// 현재 문장을 기억해 놓은 다음 문장으로 세팅
