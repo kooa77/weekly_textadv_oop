@@ -16,6 +16,9 @@ struct sString
 
 	sString* _prev;	// 이전 문장
 	sString* _next;	// 다음 문장
+
+	void InitString(sString* string, const char* text, eStringType type);
+	void InitString(sString* string, const char* text, eStringType type, int selectY, int selectN);
 };
 
 struct sParagraph
@@ -30,9 +33,6 @@ struct sParagraphList
 	//struct sParagraph list[256];
 	struct sParagraph* list;
 };
-
-void InitString(sString* string, const char* text, eStringType type);
-void InitString(sString* string, const char* text, eStringType type, int selectY, int selectN);
 
 void AddStringToParagraph(sParagraph* paragraph, sString* text);
 
