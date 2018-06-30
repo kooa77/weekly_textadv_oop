@@ -4,17 +4,17 @@
 #include <string.h>
 #include "PrintLib.h"
 
-void sString::Init(sString* string, const char* text, eStringType type)
+void sString::Init(const char* text, eStringType type)
 {
-	string->_type = type;
-	strcpy_s(string->_text, text);
+	_type = type;
+	strcpy_s(_text, text);
 }
 
-void sString::Init(sString* string, const char* text, eStringType type, int selectY, int selectN)
+void sString::Init(const char* text, eStringType type, int selectY, int selectN)
 {
-	Init(string, text, type);
-	string->_selectY = selectY;
-	string->_selectN = selectN;
+	Init(text, type);
+	_selectY = selectY;
+	_selectN = selectN;
 }
 
 void AddStringToParagraph(sParagraph* paragraph, sString* string)
@@ -54,10 +54,10 @@ int PrintParagraph(sParagraph* paragraph)
 		switch (paragraph->current->_type)
 		{
 		case TEXT:
-			paragraph->current->Print(paragraph->current);
+			paragraph->current->Print();
 			break;
 		case BRANCH:
-			paragraph->current->Print(paragraph->current);
+			paragraph->current->Print();
 			while (true)
 			{
 				char ch = _getche();
@@ -76,7 +76,7 @@ int PrintParagraph(sParagraph* paragraph)
 			}
 			break;
 		case QUIT:
-			paragraph->current->Print(paragraph->current);
+			paragraph->current->Print();
 			return -1;	// Á¾·á
 		}
 
@@ -92,8 +92,8 @@ void AddParagraphToList(sParagraphList* paragraphList, sParagraph* paragraph)
 	paragraphList->count++;
 }
 
-void sString::Print(sString* string)
+void sString::Print()
 {
-	printf(string->_text);
+	printf(_text);
 	printf("\n");
 }
