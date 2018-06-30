@@ -17,8 +17,8 @@ struct sString
 	sString* _prev;	// 이전 문장
 	sString* _next;	// 다음 문장
 
-	void InitString(sString* string, const char* text, eStringType type);
-	void InitString(sString* string, const char* text, eStringType type, int selectY, int selectN);
+	void Init(sString* string, const char* text, eStringType type);
+	void Init(sString* string, const char* text, eStringType type, int selectY, int selectN);
 };
 
 struct sParagraph

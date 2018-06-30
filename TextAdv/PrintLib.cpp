@@ -4,14 +4,14 @@
 #include <string.h>
 #include "PrintLib.h"
 
-void sString::InitString(sString* string, const char* text, eStringType type)
+void sString::Init(sString* string, const char* text, eStringType type)
 {
 	string->_type = type;
 	strcpy_s(string->_text, text);
 }
-void sString::InitString(sString* string, const char* text, eStringType type, int selectY, int selectN)
+void sString::Init(sString* string, const char* text, eStringType type, int selectY, int selectN)
 {
-	InitString(string, text, type);
+	Init(string, text, type);
 	string->_selectY = selectY;
 	string->_selectN = selectN;
 }

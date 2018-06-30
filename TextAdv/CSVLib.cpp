@@ -126,7 +126,7 @@ void ParsingCSV(const char* fileName, sParagraphList* paragraphList)
 		}
 		
 		struct sString* newString = (sString*)malloc(sizeof(sString));
-		newString->InitString(newString, text, type, selectY, selectN);
+		newString->Init(newString, text, type, selectY, selectN);
 		AddStringToParagraph(&paragraphList->list[pNo], newString);
 	}
 
