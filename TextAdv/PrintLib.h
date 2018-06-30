@@ -7,8 +7,9 @@ enum eStringType
 	QUIT,		// 2
 };
 
-struct sString
+class sString
 {
+public:
 	eStringType _type;
 	char _text[256];
 	int _selectY;
