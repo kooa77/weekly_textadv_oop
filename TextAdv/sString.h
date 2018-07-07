@@ -11,9 +11,9 @@ enum eStringType
 class sString
 {
 public:
-	sString();	// 생성자
+	sString();
 	sString(const char* text, eStringType type, int selectY, int selectN);
-	~sString();	// 해제자
+	~sString();
 
 private:
 	eStringType _type;
@@ -24,9 +24,11 @@ private:
 	sString* _prev;	// 이전 문장
 	sString* _next;	// 다음 문장
 
-public:
+private:
 	void Init(const char* text, eStringType type);
 	void Init(const char* text, eStringType type, int selectY, int selectN);
+
+public:
 	void Print();
 
 	// getter/setter

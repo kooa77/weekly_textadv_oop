@@ -2,6 +2,7 @@
 
 class sString;
 
+// sParagraph Ä¸½¶È­
 struct sParagraph
 {
 	sString* start;		// ½ÃÀÛ ¹®Àå

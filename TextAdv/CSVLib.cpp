@@ -89,8 +89,6 @@ void ParsingCSV(const char* fileName, sParagraphList* paragraphList)
 			prevNo = pNo;
 		}
 		
-		//sString* newString = new sString();
-		//newString->Init(text, type, selectY, selectN);
 		sString* newString = new sString(text, type, selectY, selectN);
 		AddStringToParagraph(&paragraphList->list[pNo], newString);
 	}
