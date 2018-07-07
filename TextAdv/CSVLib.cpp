@@ -84,13 +84,13 @@ void ParsingCSV(const char* fileName, sParagraphList* paragraphList)
 		if (pNo != prevNo)
 		{
 			// 문단이 바꼈다.
-			//paragraphList->list[pNo].count = 0;
-			paragraphList->list[pNo].current = NULL;
+			paragraphList->list[pNo]._current = NULL;
 			prevNo = pNo;
 		}
 		
 		sString* newString = new sString(text, type, selectY, selectN);
-		AddStringToParagraph(&paragraphList->list[pNo], newString);
+		//AddStringToParagraph(&paragraphList->list[pNo], newString);
+		paragraphList->list[pNo].AddString(newString);
 	}
 
 	// 4. 파일을 닫는다. - 파일을 다시 읽을 수 없는 상태로 만든다
