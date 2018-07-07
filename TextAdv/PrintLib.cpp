@@ -66,8 +66,6 @@ int PrintParagraph(sParagraph* paragraph)
 			paragraph->current->Print();
 			return -1;	// Á¾·á
 		}
-
-		//paragraph->current = paragraph->current->_next;
 		paragraph->current = paragraph->current->GetNext();
 	}
 

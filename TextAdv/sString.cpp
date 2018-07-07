@@ -3,6 +3,14 @@
 
 #include "sString.h"
 
+sString::sString()
+{
+}
+
+sString::~sString()
+{
+}
+
 void sString::Init(const char* text, eStringType type)
 {
 	_type = type;

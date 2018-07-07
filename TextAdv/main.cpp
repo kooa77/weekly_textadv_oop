@@ -108,9 +108,9 @@ int main(void)
 		paragraphList.list[i].current = paragraphList.list[i].start;
 		while (NULL != paragraphList.list[i].current)
 		{
-			//sString* nextStirng = paragraphList.list[i].current->_next;
 			sString* nextStirng = paragraphList.list[i].current->GetNext();
-			free(paragraphList.list[i].current);
+			//free(paragraphList.list[i].current);
+			delete paragraphList.list[i].current;
 			paragraphList.list[i].current = nextStirng;
 		}
 	}

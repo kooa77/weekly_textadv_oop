@@ -10,6 +10,10 @@ enum eStringType
 
 class sString
 {
+public:
+	sString();	// 생성자
+	~sString();	// 해제자
+
 private:
 	eStringType _type;
 	char _text[256];
