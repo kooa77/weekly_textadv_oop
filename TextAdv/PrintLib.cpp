@@ -6,6 +6,22 @@
 #include "sString.h"
 #include "PrintLib.h"
 
+sParagraph::sParagraph()
+{
+	_current = NULL;
+}
+
+sParagraph::~sParagraph()
+{
+	_current = _start;
+	while (NULL != _current)
+	{
+		sString* nextStirng = _current->GetNext();
+		delete _current;
+		_current = nextStirng;
+	}
+}
+
 void sParagraph::AddString(sString* string)
 {
 	// 첫 문장일 때, 첫 문장이 아닐 때 세팅이 다르다.

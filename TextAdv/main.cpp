@@ -104,6 +104,7 @@ int main(void)
 
 	Save(select);
 
+	/*
 	for (int i = 0; i < paragraphList.count; i++)
 	{
 		paragraphList.list[i]._current = paragraphList.list[i]._start;
@@ -115,6 +116,8 @@ int main(void)
 		}
 	}
 	free(paragraphList.list);
+	*/
+	delete[] paragraphList.list;
 	
 	return 0;
 }
