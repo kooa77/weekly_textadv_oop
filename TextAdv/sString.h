@@ -12,6 +12,7 @@ class sString
 {
 public:
 	sString();	// 생성자
+	sString(const char* text, eStringType type, int selectY, int selectN);
 	~sString();	// 해제자
 
 private:
