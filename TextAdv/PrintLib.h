@@ -17,14 +17,16 @@ public:
 	int Print();
 };
 
-struct sParagraphList
+class sParagraphList
 {
-	int count;
-	sParagraph* list;
+private:
+	int _count;
+	sParagraph* _list;
+
+public:
+	void Create(int count);
+	void AddStringToList(int pNo, sString* newString);
+	int Print(int select);
 };
 
-//void AddStringToParagraph(sParagraph* paragraph, sString* text);
-
-void AddParagraphToList(sParagraphList* paragraphList, sParagraph* paragraph);
-
-//int PrintParagraph(sParagraph* paragraph);
+//void AddParagraphToList(sParagraphList* paragraphList, sParagraph* paragraph);

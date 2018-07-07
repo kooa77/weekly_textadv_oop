@@ -56,7 +56,7 @@ int Load()
 
 int main(void)
 {
-	struct sParagraphList paragraphList;
+	sParagraphList paragraphList;
 	ParsingCSV("story.csv", &paragraphList);
 
 	int select = 0;	// 정수 select에 0을 대입
@@ -81,17 +81,20 @@ int main(void)
 
 	while(true)
 	{
+		/*
 		int nextSelect = 0;
-		if(select < paragraphList.count)
+		if(select < paragraphList._count)
 		{
 			printf("\n");
-			//nextSelect = PrintParagraph(&paragraphList.list[select]);
-			nextSelect = paragraphList.list[select].Print();
+			nextSelect = paragraphList._list[select].Print();
 		}
 		else
 		{
 			break;
 		}
+		*/
+		int nextSelect = paragraphList.Print(select);
+
 		if (nextSelect < 0)
 		{
 			break;
@@ -104,20 +107,8 @@ int main(void)
 
 	Save(select);
 
-	/*
-	for (int i = 0; i < paragraphList.count; i++)
-	{
-		paragraphList.list[i]._current = paragraphList.list[i]._start;
-		while (NULL != paragraphList.list[i]._current)
-		{
-			sString* nextStirng = paragraphList.list[i]._current->GetNext();
-			delete paragraphList.list[i]._current;
-			paragraphList.list[i]._current = nextStirng;
-		}
-	}
-	free(paragraphList.list);
-	*/
-	delete[] paragraphList.list;
+	paragraphList.Destroy();
+	//delete[] paragraphList._list;
 	
 	return 0;
 }

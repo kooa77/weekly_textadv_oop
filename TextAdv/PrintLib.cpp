@@ -82,9 +82,32 @@ int sParagraph::Print()
 
 	return 0;
 }
-
+/*
 void AddParagraphToList(sParagraphList* paragraphList, sParagraph* paragraph)
 {
-	paragraphList->list[paragraphList->count] = *paragraph;
-	paragraphList->count++;
+	paragraphList->_list[paragraphList->_count] = *paragraph;
+	paragraphList->_count++;
 }
+*/
+
+void sParagraphList::Create(int count)
+{
+	_count = count;
+	_list = new sParagraph[_count];
+}
+
+void sParagraphList::AddStringToList(int pNo, sString* newString)
+{
+	_list[pNo].AddString(newString);
+}
+
+int sParagraphList::Print(int select)
+{
+	if (select < _count)
+	{
+		printf("\n");
+		return _list[select].Print();
+	}
+	return -1;
+}
+

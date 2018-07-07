@@ -43,9 +43,10 @@ void ParsingCSV(const char* fileName, sParagraphList* paragraphList)
 		return;
 	}
 
-	paragraphList->count = CalcParagraphCount(fp);
-	//paragraphList->list = (sParagraph*)malloc(paragraphList->count * sizeof(sParagraph));
-	paragraphList->list = new sParagraph[paragraphList->count];
+	int count = CalcParagraphCount(fp);
+	paragraphList->Create(count);
+	//paragraphList->_count = CalcParagraphCount(fp);
+	//paragraphList->_list = new sParagraph[paragraphList->_count];
 
 	// 2. 파싱 - 파일에 있는 내용을 읽는다
 	// 첫줄 읽었고. - 필요 없으므로 스킵
@@ -82,12 +83,12 @@ void ParsingCSV(const char* fileName, sParagraphList* paragraphList)
 		if (pNo != prevNo)
 		{
 			// 문단이 바꼈다.
-			//paragraphList->list[pNo]._current = NULL;	// 생성자에서 해준다.
 			prevNo = pNo;
 		}
 		
 		sString* newString = new sString(text, type, selectY, selectN);
-		paragraphList->list[pNo].AddString(newString);
+		//paragraphList->_list[pNo].AddString(newString);
+		paragraphList->AddStringToList(pNo, newString);
 	}
 
 	// 4. 파일을 닫는다. - 파일을 다시 읽을 수 없는 상태로 만든다
