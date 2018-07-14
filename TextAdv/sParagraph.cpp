@@ -48,20 +48,6 @@ int sParagraph::Process()
 	_current = _start;
 	while (NULL != _current)
 	{
-		/*
-		switch (_current->GetType())
-		{
-		case TEXT:
-			nextSelect = _current->Process();
-			break;
-		case BRANCH:
-			nextSelect = _current->Process();
-			break;
-		case QUIT:
-			nextSelect = _current->Process();
-			break;
-		}
-		*/
 		nextSelect = _current->Process();
 		_current = _current->GetNext();
 	}
