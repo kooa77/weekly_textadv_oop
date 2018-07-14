@@ -121,17 +121,21 @@
   <ItemGroup>
     <ClCompile Include="CSVLib.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PrintLib.cpp" />
     <ClCompile Include="sParagraph.cpp" />
     <ClCompile Include="sParagraphList.cpp" />
     <ClCompile Include="sString.cpp" />
+    <ClCompile Include="sStringBranch.cpp" />
+    <ClCompile Include="sStringQuit.cpp" />
+    <ClCompile Include="sStringText.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CSVLib.h" />
-    <ClInclude Include="PrintLib.h" />
     <ClInclude Include="sParagraph.h" />
     <ClInclude Include="sParagraphList.h" />
     <ClInclude Include="sString.h" />
+    <ClInclude Include="sStringBranch.h" />
+    <ClInclude Include="sStringQuit.h" />
+    <ClInclude Include="sStringText.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

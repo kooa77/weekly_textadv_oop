@@ -14,5 +14,5 @@ public:
 	void Destroy();
 
 	void AddStringToList(int pNo, sString* newString);
-	int Print(int select);
+	int Process(int select);
 };

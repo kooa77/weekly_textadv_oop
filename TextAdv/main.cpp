@@ -2,7 +2,6 @@
 #include <conio.h>
 #include <stdlib.h>
 
-#include "PrintLib.h"
 #include "sParagraphList.h"
 #include "sString.h"
 #include "CSVLib.h"
@@ -82,7 +81,7 @@ int main(void)
 
 	while(true)
 	{
-		int nextSelect = paragraphList.Print(select);
+		int nextSelect = paragraphList.Process(select);
 
 		if (nextSelect < 0)
 		{

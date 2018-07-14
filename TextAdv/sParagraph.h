@@ -14,5 +14,5 @@ private:
 
 public:
 	void AddString(sString* string);
-	int Print();
+	int Process();
 };

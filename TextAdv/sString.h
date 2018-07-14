@@ -24,11 +24,13 @@ private:
 	sString* _prev;	// 이전 문장
 	sString* _next;	// 다음 문장
 
-private:
+public:
 	void Init(const char* text, eStringType type);
 	void Init(const char* text, eStringType type, int selectY, int selectN);
 
 public:
+	// 오버라이딩 (overriding)
+	virtual int Process();	// 상속을 받은 자식 클래스에서는 다르게 작동 시키고 싶어요.
 	void Print();
 
 	// getter/setter

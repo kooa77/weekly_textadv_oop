@@ -2,9 +2,11 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "PrintLib.h"
 #include "sParagraphList.h"
 #include "sString.h"
+#include "sStringText.h"
+#include "sStringBranch.h"
+#include "sStringQuit.h"
 #include "CSVLib.h"
 
 int CalcParagraphCount(FILE* fp)
@@ -87,8 +89,20 @@ void ParsingCSV(const char* fileName, sParagraphList* paragraphList)
 			prevNo = pNo;
 		}
 		
-		sString* newString = new sString(text, type, selectY, selectN);
-		//paragraphList->_list[pNo].AddString(newString);
+		sString* newString = NULL;
+		switch (type)
+		{
+		case eStringType::TEXT:
+			newString = new sStringText();
+			break;
+		case eStringType::BRANCH:
+			newString = new sStringBranch();
+			break;
+		case eStringType::QUIT:
+			newString = new sStringQuit();
+			break;
+		}
+		newString->Init(text, type, selectY, selectN);
 		paragraphList->AddStringToList(pNo, newString);
 	}
 

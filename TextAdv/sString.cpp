@@ -33,6 +33,11 @@ void sString::Init(const char* text, eStringType type, int selectY, int selectN)
 	_selectN = selectN;
 }
 
+int sString::Process()
+{
+	return -1;
+}
+
 void sString::Print()
 {
 	printf(_text);

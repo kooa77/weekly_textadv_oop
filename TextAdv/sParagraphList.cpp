@@ -18,12 +18,12 @@ void sParagraphList::AddStringToList(int pNo, sString* newString)
 	_list[pNo].AddString(newString);
 }
 
-int sParagraphList::Print(int select)
+int sParagraphList::Process(int select)
 {
 	if (select < _count)
 	{
 		printf("\n");
-		return _list[select].Print();
+		return _list[select].Process();
 	}
 	return -1;
 }

@@ -39,43 +39,32 @@ void sParagraph::AddString(sString* string)
 	}
 }
 
-int sParagraph::Print()
+int sParagraph::Process()
 {
+	int nextSelect = 0;
+
 	// 현재 출력할 문장을 첫 문장으로 세팅
 	// (첫 문장 부터 출력)
 	_current = _start;
 	while (NULL != _current)
 	{
+		/*
 		switch (_current->GetType())
 		{
 		case TEXT:
-			_current->Print();
+			nextSelect = _current->Process();
 			break;
 		case BRANCH:
-			_current->Print();
-			while (true)
-			{
-				char ch = _getche();
-				if ('y' == ch || 'Y' == ch)
-				{
-					return _current->GetSelectY();
-				}
-				else if ('n' == ch || 'N' == ch)
-				{
-					return _current->GetSelectN();
-				}
-				else if ('q' == ch || 'Q' == ch || 27 == ch)	// 27 : ESC
-				{
-					return -1;	// 종료
-				}
-			}
+			nextSelect = _current->Process();
 			break;
 		case QUIT:
-			_current->Print();
-			return -1;	// 종료
+			nextSelect = _current->Process();
+			break;
 		}
+		*/
+		nextSelect = _current->Process();
 		_current = _current->GetNext();
 	}
 
-	return 0;
+	return nextSelect;
 }
