@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "PrintLib.h"
+#include "sParagraphList.h"
 #include "sString.h"
 #include "CSVLib.h"
 

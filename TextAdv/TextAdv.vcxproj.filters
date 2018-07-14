@@ -27,6 +27,12 @@
     <ClCompile Include="sString.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="sParagraph.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="sParagraphList.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PrintLib.h">
@@ -36,6 +42,12 @@
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="sString.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="sParagraph.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="sParagraphList.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>

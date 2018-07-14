@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "PrintLib.h"
+#include "sParagraphList.h"
 #include "sString.h"
 #include "CSVLib.h"
 
@@ -81,18 +82,6 @@ int main(void)
 
 	while(true)
 	{
-		/*
-		int nextSelect = 0;
-		if(select < paragraphList._count)
-		{
-			printf("\n");
-			nextSelect = paragraphList._list[select].Print();
-		}
-		else
-		{
-			break;
-		}
-		*/
 		int nextSelect = paragraphList.Print(select);
 
 		if (nextSelect < 0)
@@ -108,7 +97,6 @@ int main(void)
 	Save(select);
 
 	paragraphList.Destroy();
-	//delete[] paragraphList._list;
 	
 	return 0;
 }
